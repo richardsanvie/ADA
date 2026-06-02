@@ -1,0 +1,3230 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lookbook — Acasos do Amor</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap");
+
+      :root {
+        --red: #8b1a1a;
+        --red-light: #c0392b;
+        --cream: #f5f0e8;
+        --dark: #0d0d0d;
+        --charcoal: #1a1a1a;
+        --gray: #2c2c2c;
+        --gold: #b8860b;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--dark);
+        color: var(--cream);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* ── CAPA ── */
+      .cover {
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(
+          160deg,
+          #0d0d0d 0%,
+          #1a0505 50%,
+          #0d0d0d 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cover::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 40% at 50% 50%,
+          rgba(139, 26, 26, 0.18) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .cover-badge {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 32px;
+      }
+
+      .cover-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(52px, 10vw, 120px);
+        font-weight: 300;
+        line-height: 0.9;
+        color: var(--cream);
+        margin-bottom: 16px;
+        position: relative;
+      }
+
+      .cover-title em {
+        font-style: italic;
+        color: var(--red-light);
+      }
+
+      .cover-subtitle {
+        font-size: 11px;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        color: rgba(245, 240, 232, 0.45);
+        margin-bottom: 56px;
+      }
+
+      .cover-author {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: clamp(18px, 3vw, 22px);
+        color: rgba(245, 240, 232, 0.6);
+      }
+
+      .cover-rule {
+        width: 95px;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--red),
+          transparent
+        );
+        margin: 28px auto;
+      }
+
+      .cover-label {
+        font-size: 9px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: rgba(245, 240, 232, 0.3);
+      }
+
+      /* ── INTRO ── */
+      .intro {
+        padding: 95px 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 95px;
+        align-items: center;
+      }
+
+      .intro-quote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(26px, 3vw, 36px);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.3;
+        color: var(--cream);
+        border-left: 2px solid var(--red);
+        padding-left: 32px;
+      }
+
+      .intro-text h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(32px, 4vw, 42px);
+        font-weight: 300;
+        color: var(--cream);
+        margin-bottom: 20px;
+      }
+
+      .intro-text p {
+        font-size: 13px;
+        color: rgba(245, 240, 232, 0.65);
+        margin-bottom: 16px;
+        line-height: 1.9;
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 9px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        border: 1px solid rgba(192, 57, 43, 0.4);
+        padding: 5px 14px;
+        margin: 4px 4px 4px 0;
+      }
+      /* ── SECTION CENTRALIZAÇÃO ── */
+      section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      /* ── SECTION HEADER ── */
+      .section-header {
+        text-align: center;
+        padding: 95px 40px 40px;
+        background: var(--dark);
+      }
+
+      .section-header .eyebrow {
+        font-size: 9px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 16px;
+      }
+
+      .section-header h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(38px, 5vw, 64px);
+        font-weight: 300;
+        color: var(--cream);
+      }
+
+      /* ── PRODUCT CARD (grid resumo) ── */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+        gap: 2px;
+        background: #111;
+        padding: 2px;
+      }
+
+      .product-card {
+        background: var(--charcoal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-card-inner {
+        padding: 50px 40px;
+        min-height: 395px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+      }
+
+      .product-card-inner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(13, 13, 13, 0.95) 0%,
+          rgba(13, 13, 13, 0.3) 60%,
+          transparent 100%
+        );
+        z-index: 1;
+      }
+
+      .product-bg {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 120px;
+        opacity: 0.07;
+        z-index: 0;
+        filter: grayscale(1);
+      }
+
+      .product-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .product-number {
+        font-size: 9px;
+        letter-spacing: 4px;
+        color: var(--red-light);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .product-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 34px;
+        font-weight: 300;
+        color: var(--white);
+        margin-bottom: 12px;
+        line-height: 1.1;
+      }
+
+      .product-desc {
+        font-size: 12px;
+        color: rgba(245, 240, 232, 0.55);
+        line-height: 1.8;
+      }
+
+      /* ── CATALOG SLIDER ── */
+      .catalog-section {
+        padding: 64px 0 0;
+        background: var(--dark);
+      }
+
+      .catalog-header {
+        padding: 0 60px 32px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .catalog-header-left .eyebrow {
+        font-size: 9px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 10px;
+      }
+
+      .catalog-header-left h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(28px, 3.5vw, 44px);
+        font-weight: 300;
+        color: var(--cream);
+        line-height: 1.1;
+      }
+
+      .slider-controls {
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .slider-btn {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(245, 240, 232, 0.2);
+        background: transparent;
+        color: var(--cream);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        transition: all 0.2s;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .slider-btn:hover {
+        border-color: var(--red);
+        color: var(--red-light);
+      }
+
+      .slider-track-wrap {
+        overflow: hidden;
+        padding-bottom: 48px;
+      }
+
+      .slider-track {
+        display: flex;
+        gap: 2px;
+        transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+        cursor: grab;
+        user-select: none;
+      }
+
+      .slider-track:active {
+        cursor: grabbing;
+      }
+
+      .slide-card {
+        flex: 0 0 300px;
+        background: var(--charcoal);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slide-card-inner {
+        padding: 0;
+        height: 395px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slide-card-inner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(13, 13, 13, 0.92) 0%,
+          rgba(13, 13, 13, 0.15) 50%,
+          transparent 100%
+        );
+        z-index: 1;
+      }
+
+      .slide-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+        display: block;
+      }
+
+      .slide-bg {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 110px;
+        opacity: 0.07;
+        z-index: 0;
+      }
+
+      .slide-content {
+        position: relative;
+        z-index: 2;
+        padding: 24px 28px;
+      }
+
+      .slide-label {
+        font-size: 8px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 8px;
+      }
+
+      .slide-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 26px;
+        font-weight: 300;
+        color: var(--white);
+        line-height: 1.1;
+        margin-bottom: 0;
+      }
+
+      .catalog-divider {
+        height: 1px;
+        background: rgba(139, 26, 26, 0.15);
+        margin: 0 60px;
+      }
+
+      /* dots */
+      .slider-dots {
+        display: flex;
+        gap: 6px;
+        padding: 0 60px 16px;
+        align-items: center;
+      }
+
+      .dot {
+        width: 20px;
+        height: 2px;
+        background: rgba(245, 240, 232, 0.2);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .dot.active {
+        background: var(--red-light);
+        width: 36px;
+      }
+
+      /* ── HERO PRODUCT ── */
+      .hero-product {
+        background: var(--charcoal);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 560px;
+        border-top: 1px solid rgba(139, 26, 26, 0.2);
+      }
+
+      .hero-product .visual {
+        background: linear-gradient(135deg, #1a0505, #0d0d0d);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        opacity: 0.52;
+        position: relative;
+      }
+
+      .hero-product .visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(139, 26, 26, 0.15) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .hero-product .visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      .hero-product .info {
+        padding: 60px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero-product .eyebrow {
+        font-size: 9px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 20px;
+      }
+
+      .hero-product h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(32px, 4vw, 56px);
+        font-weight: 300;
+        color: var(--cream);
+        margin-bottom: 24px;
+        line-height: 1.1;
+      }
+
+      .hero-product p {
+        font-size: 13px;
+        color: rgba(245, 240, 232, 0.6);
+        line-height: 1.9;
+        margin-bottom: 28px;
+        max-width: 95%;
+      }
+
+      .hero-product blockquote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 18px;
+        font-style: italic;
+        color: var(--cream);
+        opacity: 0.8;
+        border-left: 2px solid var(--red);
+        padding-left: 20px;
+        margin-top: 16px;
+        line-height: 1.6;
+      }
+
+      /* Reverse: imagem vai para a direita no desktop */
+      .hero-product.reverse {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-product.reverse .visual {
+        order: 2;
+      }
+      .hero-product.reverse .info {
+        order: 1;
+      }
+
+      /* ── UNIFORMES ── */
+      .uniforms-section {
+        padding: 95px 60px;
+        background: #111;
+      }
+
+      .uniforms-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .uniform-card {
+        background: var(--charcoal);
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(139, 26, 26, 0.15);
+      }
+
+      .uniform-card::before {
+        content: attr(data-tier);
+        position: absolute;
+        top: -20px;
+        right: -10px;
+        font-size: 90px;
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-weight: 300;
+        color: rgba(139, 26, 26, 0.06);
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .uniform-card .tier-label {
+        font-size: 9px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 16px;
+      }
+
+      .uniformes {
+        width: 100%;
+        margin: 16px 0 24px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .uniformes img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .uniform-card h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(32px, 3vw, 44px);
+        font-weight: 300;
+        color: var(--cream);
+        margin-bottom: 16px;
+      }
+
+      .uniform-card p {
+        font-size: 12px;
+        color: rgba(245, 240, 232, 0.55);
+        line-height: 1.9;
+        margin-bottom: 16px;
+      }
+
+      .uniform-features {
+        list-style: none;
+        margin-top: 16px;
+      }
+
+      .uniform-features li {
+        font-size: 11px;
+        color: rgba(245, 240, 232, 0.5);
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .uniform-features li::before {
+        content: "—";
+        color: var(--red);
+        flex-shrink: 0;
+      }
+
+      /* ── FUNKOPOPS ── */
+      .funko-section {
+        padding: 95px 60px;
+        background: var(--dark);
+      }
+
+      .funko-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        margin-top: 50px;
+      }
+
+      .funko-card {
+        background: var(--charcoal);
+        padding: 50px 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .funko-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--red),
+          transparent
+        );
+      }
+
+      .funko-card img {
+        width: 100%;
+        max-width: 295px;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto 24px;
+      }
+
+      .funko-number {
+        font-size: 9px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 12px;
+      }
+
+      .funko-card h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 300;
+        color: var(--cream);
+        margin-bottom: 16px;
+      }
+
+      .funko-card p {
+        font-size: 12px;
+        color: rgba(245, 240, 232, 0.5);
+        line-height: 1.8;
+        max-width: 95%;
+        margin: 0 auto;
+      }
+
+      /* ── QUOTE BANNER ── */
+      .quote-banner {
+        padding: 95px 40px;
+        background: linear-gradient(135deg, #1a0505 0%, #0d0d0d 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .quote-banner::before {
+        content: '"';
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(150px, 25vw, 300px);
+        color: rgba(139, 26, 26, 0.06);
+        line-height: 1;
+        pointer-events: none;
+      }
+
+      .quote-banner blockquote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(22px, 3.5vw, 42px);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--cream);
+        max-width: 950px;
+        margin: 0 auto 32px;
+        line-height: 1.4;
+        position: relative;
+      }
+
+      .quote-banner cite {
+        font-size: 10px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        font-style: normal;
+      }
+
+      /* ── CONTRA-CAPA ── */
+      .back-cover {
+        background: var(--charcoal);
+        padding: 95px 40px;
+        text-align: center;
+        border-top: 1px solid rgba(139, 26, 26, 0.3);
+      }
+
+      .back-cover h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(36px, 5vw, 52px);
+        font-weight: 300;
+        color: var(--cream);
+        margin-bottom: 16px;
+      }
+
+      .back-cover p {
+        font-size: 13px;
+        color: rgba(245, 240, 232, 0.5);
+        max-width: 500px;
+        margin: 0 auto 40px;
+        line-height: 1.9;
+      }
+
+      .back-cover .amazon-link {
+        display: inline-block;
+        font-size: 10px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--cream);
+        border: 1px solid rgba(245, 240, 232, 0.3);
+        padding: 14px 36px;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .back-cover .amazon-link:hover {
+        background: var(--red);
+        border-color: var(--red);
+      }
+
+      .page-break {
+        height: 1px;
+        background: rgba(139, 26, 26, 0.15);
+      }
+
+      /* ════════════════════════════════════════
+         RESPONSIVO — tablet (≤ 900px)
+      ════════════════════════════════════════ */
+      @media (max-width: 900px) {
+        .intro {
+          padding: 60px 40px;
+          gap: 48px;
+        }
+        .hero-product .info {
+          padding: 48px 40px;
+        }
+        .uniforms-section {
+          padding: 60px 40px;
+        }
+        .funko-section {
+          padding: 60px 40px;
+        }
+      }
+
+      /* ════════════════════════════════════════
+         RESPONSIVO — mobile (≤ 640px)
+      ════════════════════════════════════════ */
+      @media (max-width: 640px) {
+        .intro {
+          grid-template-columns: 1fr;
+          gap: 36px;
+          padding: 48px 24px;
+        }
+
+        .intro-quote {
+          font-size: 24px;
+          padding-left: 20px;
+        }
+
+        /* Hero: empilha — visual sempre em cima */
+        .hero-product {
+          grid-template-columns: 1fr;
+          min-height: unset;
+        }
+
+        /* Reverse também vira 1 coluna */
+        .hero-product.reverse {
+          grid-template-columns: 1fr;
+        }
+
+        /* Força visual no topo independente do order do desktop */
+        .hero-product .visual {
+          order: 1 !important;
+          min-height: 295px;
+          width: 100%;
+        }
+        .hero-product .info {
+          order: 2 !important;
+        }
+
+        .hero-product .info {
+          padding: 36px 24px;
+        }
+        .hero-product p {
+          max-width: 100%;
+        }
+
+        /* Uniformes: empilha */
+        .uniforms-section {
+          padding: 48px 24px;
+        }
+        .uniforms-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        /* Funko: empilha */
+        .funko-section {
+          padding: 48px 24px;
+        }
+        .funko-grid {
+          grid-template-columns: 1fr;
+        }
+        .funko-card {
+          padding: 40px 24px;
+        }
+        .funko-card img {
+          max-width: 220px;
+        }
+
+        .quote-banner {
+          padding: 60px 24px;
+        }
+        .section-header {
+          padding: 60px 24px 32px;
+        }
+
+        /* Grid resumo: 1 coluna */
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+        .product-card {
+          grid-column: span 1 !important;
+        }
+
+        .back-cover {
+          padding: 60px 24px;
+        }
+        .cover {
+          padding: 48px 24px;
+        }
+        .cover-subtitle {
+          letter-spacing: 4px;
+        }
+
+        /* Slider mobile */
+        .catalog-header {
+          padding: 0 24px 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+        .slide-card {
+          flex: 0 0 76vw;
+        }
+        .slider-dots {
+          padding: 0 24px 16px;
+        }
+        .catalog-divider {
+          margin: 0 24px;
+        }
+        .catalog-section {
+          padding: 48px 0 0;
+        }
+      }
+
+      /* ── MODAL ── */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal-img-wrap {
+        position: relative;
+        max-width: 90vw;
+        max-height: 95vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-img-wrap img {
+        max-width: 90vw;
+        max-height: 95vh;
+        object-fit: contain;
+        display: block;
+        user-select: none;
+      }
+      .modal-close {
+        position: fixed;
+        top: 24px;
+        right: 32px;
+        background: none;
+        border: 1px solid rgba(245, 240, 232, 0.3);
+        color: var(--cream);
+        font-size: 22px;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s;
+        z-index: 1001;
+      }
+      .modal-close:hover {
+        border-color: var(--red-light);
+        color: var(--red-light);
+      }
+      .modal-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: 1px solid rgba(245, 240, 232, 0.2);
+        color: var(--cream);
+        font-size: 22px;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        z-index: 1001;
+      }
+      .modal-nav:hover {
+        border-color: var(--red);
+        color: var(--red-light);
+      }
+      .modal-nav.prev {
+        left: 24px;
+      }
+      .modal-nav.next {
+        right: 24px;
+      }
+      .modal-info {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .modal-info .modal-category {
+        font-size: 9px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 6px;
+      }
+      .modal-info .modal-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        font-weight: 300;
+        color: var(--cream);
+      }
+      .modal-counter {
+        font-size: 10px;
+        letter-spacing: 3px;
+        color: rgba(245, 240, 232, 0.35);
+        margin-top: 8px;
+      }
+      .modal-cat-nav {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-cat-btn {
+        background: none;
+        border: 1px solid rgba(245, 240, 232, 0.15);
+        color: rgba(245, 240, 232, 0.4);
+        font-family: "Montserrat", sans-serif;
+        font-size: 9px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .modal-cat-btn:hover {
+        border-color: var(--red);
+        color: var(--red-light);
+      }
+
+      .slide-card {
+        cursor: pointer;
+      }
+      .slide-card:hover .slide-img {
+        transform: scale(1.04);
+        transition: transform 0.4s ease;
+      }
+      .slide-img {
+        transition: transform 0.4s ease;
+      }
+
+      /* Print */
+      @media print {
+        .cover,
+        .hero-product,
+        .uniforms-section,
+        .funko-section,
+        .quote-banner,
+        .back-cover {
+          page-break-after: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- CAPA -->
+    <div class="container">
+      <section class="cover">
+        <img
+          src="/logo.png"
+          alt="Limerê"
+          style="height: 139px; opacity: 0.90; margin-bottom: 15px"
+        />
+        <div class="container"></div>
+        <div class="cover-badge">Coleção Oficial · Lookbook 2025</div>
+        <h1 class="cover-title">Acasos<br /><em>do Amor</em></h1>
+        <p class="cover-subtitle">Milena Seyfild</p>
+        <div class="cover-rule"></div>
+        <p class="cover-author">
+          Uma história de obsessão, hóquei e amor proibido
+        </p>
+        <div class="cover-rule" style="margin-top: 40px"></div>
+        <p class="cover-label">Produtos Oficiais</p>
+      </section>
+    </div>
+
+    <!-- INTRO -->
+    <div class="container" style="background: var(--charcoal)">
+      <section class="intro" style="margin: 0 auto; max-width: 1520px">
+        <div class="intro-quote">
+          "Você não é minha irmã.<br />Nunca foi e nunca será."
+        </div>
+        <div class="intro-text">
+          <h2>O universo<br />de Baron &amp; Cecília</h2>
+          <p>
+            Uma coleção criada para quem vive dentro das páginas. Cada produto
+            carrega a essência de Acasos do Amor: a tensão do campus, a frieza
+            das quadras de hóquei e a intensidade de um amor completamente
+            proibido.
+          </p>
+          <p>
+            Do marca-página que acompanha cada capítulo ao uniforme que faz você
+            se sentir parte do time, mergulhe de vez no universo criado por
+            Milena Seyfild.
+          </p>
+          <div style="margin-top: 24px">
+            <span class="tag">Dark Romance</span>
+            <span class="tag">Hóquei</span>
+            <span class="tag">Campus</span>
+            <span class="tag">Stepsibling</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- QUOTE 1 -->
+    <div class="quote-banner">
+      <blockquote>"Você foi feita pra mim."</blockquote>
+      <cite>Baron Donovan — Acasos do Amor</cite>
+    </div>
+    <div
+      class="ProdutosContent"
+      style="max-width: 1520px; margin: 0 auto; background: var(--charcoal)"
+    >
+      <!-- PRODUTO 01 — MARCA-PÁGINA -->
+      <article class="hero-product">
+        <div class="visual">
+          <img src="/Marca-página 2.png" alt="Marca-página Acasos do Amor" />
+        </div>
+        <div class="info" style="max-width: 95%">
+          <p class="eyebrow">Produto 01 · Marca-página</p>
+          <h3>Ordem da<br />Capitania</h3>
+          <p>
+            Um aviso oficial. Uma proibição. Uma assinatura. Inspirado na
+            obsessão de Baron Donovan por Cecília Braga, este marca-página
+            frente e verso transforma uma das dinâmicas mais marcantes de Acasos
+            do Amor em um documento de fraternidade: brasão dourado, carimbo de
+            PROIBIDO, estética universitária vintage e uma promessa impressa no
+            verso.
+          </p>
+          <p>
+            Para quem sabe que, quando Baron dá uma ordem, o campus inteiro
+            obedece.
+          </p>
+          <div>
+            <span class="tag">Edição Especial</span>
+            <span class="tag">Frente &amp; Verso</span>
+          </div>
+          <blockquote>
+            "Mesmo se nossos pais nunca tivessem se conhecido, eu daria um jeito
+            de te encontrar."
+          </blockquote>
+        </div>
+      </article>
+
+      <!-- PRODUTO 02 — TECLAS -->
+      <article class="hero-product reverse">
+        <div class="visual">
+          <img src="/Teclas 1.png" alt="Teclas de teclado Acasos do Amor" />
+        </div>
+        <div class="info" style="margin-left: auto; max-width: 95%">
+          <div class="conten">
+            <p class="eyebrow">Produto 02 · Teclas de Teclado</p>
+            <h3>Kit<br />Donovan</h3>
+            <p>
+              Um conjunto de keycaps colecionáveis inspirado no capitão de
+              hóquei mais obsessivo do campus. Com acabamento bordô e ícones
+              brancos em estilo varsity, o kit reúne três símbolos essenciais do
+              universo de Acasos do Amor: Harvard, hóquei e Baron Donovan. Um
+              item sutil, elegante e perfeito para fãs que querem manter a
+              fraternidade Donovan sempre ao alcance dos dedos.
+            </p>
+            <div>
+              <span class="tag">Kit com 3 Teclas</span>
+              <span class="tag">Compatível Cherry MX</span>
+            </div>
+            <blockquote>
+              "Meu p.. é seu súdito. E ele não estava levantando pra ninguém
+              mais a não ser você."
+            </blockquote>
+          </div>
+        </div>
+      </article>
+
+      <!-- PRODUTO 03 — CROCHÊ -->
+      <article class="hero-product">
+        <div class="visual">
+          <img src="/Crochê.png" alt="Chaveiro de Crochê Acasos do Amor" />
+        </div>
+        <div class="info" style="max-width: 95%">
+          <p class="eyebrow">Produto 03 · Chaveiro de Crochê</p>
+          <h3>A Jersey<br />do Capitão</h3>
+          <p>
+            Pequena demais para entrar no gelo. Marcante demais para passar
+            despercebida. <br />Este chaveiro artesanal transforma a jersey de
+            Baron Donovan em uma miniatura de crochê, com o C de capitão na
+            frente e o 98 nas costas. A peça mistura o charme handmade com a
+            estética universitária de Acasos do Amor, criando um item delicado,
+            colecionável e imediatamente reconhecível para quem conhece o
+            capitão.
+          </p>
+          <p>
+            Para carregar Baron por perto, mesmo quando ele provavelmente
+            preferiria estar carregando Cecília.
+          </p>
+          <div>
+            <span class="tag">Crochê Artesanal</span>
+            <span class="tag">Frente e Verso</span>
+            <span class="tag">Edição Jersey 98</span>
+          </div>
+          <blockquote>
+            "Vou ser completamente devoto a você, Cecília. Pra sempre."
+          </blockquote>
+        </div>
+      </article>
+
+      <!-- PRODUTO 04 — JERSEY RETRO -->
+      <article class="hero-product reverse">
+        <div class="visual">
+          <img src="/Jersey-retro 2.png" alt="Jersey Retro A Garota do Capitão" />
+        </div>
+        <div class="info" style="margin-left: auto; max-width: 95%">
+          <p class="eyebrow">Produto 04 · Jersey Retro</p>
+          <h3>A Garota<br />do Capitão</h3>
+          <p>
+            Verde, amarelo, número 98 e um nome impossível de ignorar.
+            <br />Esta jersey retrô foi criada como uma homenagem à Cecília
+            Braga: brasileira, luminosa e no centro absoluto da obsessão de
+            Baron Donovan. A peça combina estética varsity, corte oversized e
+            detalhes esportivos com o número do capitão, criando uma camisa que
+            parece saída diretamente do universo de Acasos do Amor.
+          </p>
+          <p>
+            Para quem sabe que, no jogo de Baron, Cecília nunca foi torcida.<br />
+            Ela sempre foi o prêmio.
+          </p>
+          <div>
+            <span class="tag">Jersey Retro Oversized</span>
+            <span class="tag">Detalhes Bordados</span>
+            <span class="tag">Edição Cecília 98</span>
+          </div>
+          <blockquote>
+            "Não dou a mínima para o que esses babacas acham. Tudo o que importa
+            é ter você aqui comigo."
+          </blockquote>
+        </div>
+      </article>
+
+      <!-- PRODUTO 05 — PELÚCIA -->
+      <article class="hero-product">
+        <div class="visual">
+          <img src="/Pelúcia.png" alt="Pelúcia Baron Donovan" />
+        </div>
+        <div class="info" style="max-width: 95%">
+          <p class="eyebrow">Produto 05 · Pelúcia Colecionável</p>
+          <h3>Puck<br />Donovan</h3>
+          <p>
+            Um mini Baron em forma de puck de hóquei: fechado, rabugento e
+            impossível de ignorar. Inspirada no capitão de Acasos do Amor, esta
+            pelúcia transforma Baron Donovan em um mascote colecionável com
+            capacete bordô, detalhe HARVARD, número 98 e expressão grumpy que
+            entrega exatamente a energia dele dentro e fora do gelo.
+          </p>
+          <p>
+            Fofa na aparência, possessiva no conceito. Uma peça feita para fãs
+            que querem ter o capitão sempre por perto.
+          </p>
+          <div>
+            <span class="tag">Pelúcia Colecionável</span>
+            <span class="tag">Detalhes Bordados</span>
+            <span class="tag">Capacete Harvard 98</span>
+          </div>
+          <blockquote>"Você me pertence agora."</blockquote>
+        </div>
+      </article>
+    </div>
+
+    <!-- QUOTE 2 -->
+    <div class="quote-banner">
+      <blockquote>
+        "Irmãos postiços, Cecília.<br />E podemos fazer o que quisermos."
+      </blockquote>
+      <cite>Baron Donovan — Acasos do Amor</cite>
+    </div>
+
+    <!-- UNIFORMES -->
+    <div class="container" style="background-color: #111">
+      <section
+        class="uniforms-section"
+        style="margin: 0 auto; max-width: 1520px"
+      >
+        <div style="text-align: left">
+          <p
+            style="
+              font-size: 9px;
+              letter-spacing: 6px;
+              text-transform: uppercase;
+              color: var(--red-light);
+              margin-bottom: 12px;
+            "
+          >
+            Produto 06 · Jersey Hockey
+          </p>
+          <h2
+            style="
+              font-family: &quot;Cormorant Garamond&quot;, serif;
+              font-size: clamp(32px, 4vw, 56px);
+              font-weight: 300;
+              color: var(--cream);
+            "
+          >
+            Uniforme<br />do Capitão
+          </h2>
+          <p
+            style="
+              font-size: 13px;
+              color: rgba(245, 240, 232, 0.55);
+              margin-top: 16px;
+              max-width: 90%;
+              line-height: 1.9;
+            "
+          >
+            A peça que transforma o leitor em parte do time Donovan. <br />Duas
+            versões da jersey oficial inspirada em Baron Donovan: uma para quem
+            quer entrar no universo do capitão de forma discreta, e outra para
+            quem quer vestir a peça como item de coleção.<br />Com modelagem
+            oversized, visual de hóquei universitário, número 98, patch de
+            capitão e detalhes varsity, as jerseys traduzem a presença dominante
+            de Baron dentro do campus, da fraternidade e do gelo.<br />Uma peça
+            criada para fãs que querem pertencer ao time ou, pelo menos, parecer
+            que já foram escolhidas por ele.
+          </p>
+        </div>
+
+        <div class="uniforms-grid">
+          <div class="uniform-card" data-tier="S">
+            <p class="tier-label">Linha Standard</p>
+            <div class="uniformes">
+              <img src="/Uniforme Standard.png" alt="Jersey Bordô 98" />
+            </div>
+            <h3>Jersey<br />Bordô 98</h3>
+            <p>
+              A versão mais discreta, sombria e elegante da jersey Donovan.<br />
+              Toda em bordô profundo, com aplicações tom sobre tom, número 98,
+              brasão central, lettering universitário e patch de capitão, a peça
+              tem uma estética mais dark college e minimalista. É o tipo de
+              camisa que parece uniforme oficial do campus, mas com um toque
+              secreto para quem reconhece o universo de Acasos do Amor.
+            </p>
+            <ul class="uniform-features">
+              <li>Modelagem Oversized</li>
+              <li>Detalhes Tonais</li>
+              <li>Edição Bordô</li>
+            </ul>
+          </div>
+
+          <div
+            class="uniform-card"
+            data-tier="P"
+            style="border-color: rgba(184, 134, 11, 0.3)"
+          >
+            <p class="tier-label" style="color: #b8860b">Linha Premium</p>
+            <div class="uniformes">
+              <img src="/Uniforme Premium.png" alt="Jersey Harvard 98" />
+            </div>
+            <h3>Jersey<br />Harvard 98</h3>
+            <p>
+              A versão de coleção da camisa do capitão. <br />
+              Com base off-white, recortes bordô, faixas pretas, patches nas
+              mangas, número 98, brasão H e o C de capitão no peito, esta jersey
+              tem presença de uniforme oficial de hóquei universitário. Mais
+              contrastada, mais esportiva e mais imponente, ela representa Baron
+              Donovan em sua forma mais reconhecível: capitão, obsessivo e
+              impossível de ignorar.
+            </p>
+            <ul class="uniform-features">
+              <li>Jersey Premium</li>
+              <li>Patches e Bordados</li>
+              <li>Número 98</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 40px;
+            padding: 32px;
+            border: 1px solid rgba(139, 26, 26, 0.2);
+            background: rgba(139, 26, 26, 0.05);
+          "
+        >
+          <p
+            style="
+              font-family: &quot;Cormorant Garamond&quot;, serif;
+              font-size: clamp(16px, 2vw, 22px);
+              font-style: italic;
+              color: var(--cream);
+            "
+          >
+            "As pessoas aqui já sabem que você é minha, Cecília. Você usar a
+            minha roupa não será surpresa."
+          </p>
+          <p
+            style="
+              font-size: 9px;
+              letter-spacing: 4px;
+              text-transform: uppercase;
+              color: var(--red-light);
+              margin-top: 12px;
+            "
+          >
+            — Baron Donovan
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- QUOTE 3 -->
+    <div class="quote-banner">
+      <blockquote>
+        "Darei tudo o que quer e precisa, e você nunca mais vai precisar
+        implorar por nada."
+      </blockquote>
+      <cite>Baron Donovan — Acasos do Amor</cite>
+    </div>
+
+    <!-- FIGURAS COLECIONÁVEIS -->
+    <div class="container" style="background-color: var(--dark)">
+      <section class="funko-section" style="margin: 0 auto; max-width: 1520px">
+        <div style="text-align: left">
+          <p
+            style="
+              font-size: 9px;
+              letter-spacing: 6px;
+              text-transform: uppercase;
+              color: var(--red-light);
+              margin-bottom: 12px;
+            "
+          >
+            Produto 07 · Figuras Colecionáveis
+          </p>
+          <h2
+            style="
+              font-family: &quot;Cormorant Garamond&quot;, serif;
+              font-size: clamp(32px, 4vw, 56px);
+              font-weight: 300;
+              color: var(--cream);
+            "
+          >
+            Baron &amp;<br />Cecília
+          </h2>
+          <p
+            style="
+              font-size: 13px;
+              color: rgba(245, 240, 232, 0.55);
+              margin-top: 16px;
+              max-width: 90%;
+              line-height: 1.9;
+            "
+          >
+            Dois personagens. Um amor proibido. Uma obsessão impossível de
+            ignorar. A coleção de figuras colecionáveis de Acasos do Amor
+            transforma Baron Donovan e Cecília Braga em peças de vinil
+            inspiradas nos símbolos centrais da obra: o capitão de hóquei de
+            Harvard, a garota brasileira que virou o mundo dele de cabeça para
+            baixo e a tensão que nasce entre o campus, a fraternidade e tudo
+            aquilo que eles não deveriam sentir. Criadas para ficarem lado a
+            lado na estante, as duas peças representam o contraste que move a
+            história: Baron, sombrio e dominante; Cecília, marcante, provocante
+            e impossível de esquecer.
+          </p>
+          <div style="margin-top: 16px">
+            <span class="tag">Vinil Colecionável</span>
+            <span class="tag">Edição em Dupla</span>
+            <span class="tag">Baron &amp; Cecília</span>
+          </div>
+        </div>
+
+        <div class="funko-grid">
+          <div class="funko-card">
+            <img
+              src="/funkopop1.png"
+              alt="Figura Colecionável Baron Donovan"
+            />
+            <p class="funko-number">Edição 01 · Figura Colecionável</p>
+            <h3>Baron Donovan</h3>
+            <p>
+              O capitão do time de hóquei em sua versão mais reconhecível. Baron
+              aparece com a jersey Harvard, o número 98, o patch de capitão e a
+              postura fechada de quem parece governar o campus inteiro sem
+              precisar dizer uma palavra. Uma peça que traduz sua energia
+              grumpy, competitiva e obsessiva — o tipo de personagem que entra
+              em cena e imediatamente toma posse da história.
+            </p>
+            <div style="margin-top: 12px">
+              <span class="tag">Jersey Harvard 98</span>
+              <span class="tag">Detalhes Esportivos</span>
+              <span class="tag">Edição Baron Donovan</span>
+            </div>
+          </div>
+
+          <div class="funko-card">
+            <img
+              src="/funkopop2.png"
+              alt="Figura Colecionável Cecília Braga"
+            />
+            <p class="funko-number">Edição 02 · Figura Colecionável</p>
+            <h3>Cecília Braga</h3>
+            <p>
+              A garota que desorganizou todos os planos do capitão. Cecília
+              ganha uma versão colecionável com estética delicada, brasileira e
+              cheia de personalidade: vestido claro, lenço vermelho, detalhes
+              dourados e o celular na mão — como se estivesse prestes a
+              provocar, fugir ou virar o universo Donovan de cabeça para baixo
+              mais uma vez.
+            </p>
+            <div style="margin-top: 12px">
+              <span class="tag">Detalhes Pintados</span>
+              <span class="tag">Edição Cecília Braga</span>
+              <span class="tag">Par Oficial Baron &amp; Cecília</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 30px;
+            padding: 32px;
+            border: 1px solid rgba(139, 26, 26, 0.2);
+            background: rgba(139, 26, 26, 0.05);
+          "
+        >
+          <p
+            style="
+              font-family: &quot;Cormorant Garamond&quot;, serif;
+              font-size: clamp(16px, 2vw, 22px);
+              font-style: italic;
+              color: var(--cream);
+            "
+          >
+            "Nem que fosse em uma próxima vida, mas eu a acharia e a tornaria
+            minha."
+          </p>
+          <p
+            style="
+              font-size: 9px;
+              letter-spacing: 4px;
+              text-transform: uppercase;
+              color: var(--red-light);
+              margin-top: 12px;
+            "
+          >
+            — Baron Donovan
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         CATÁLOGO POR CATEGORIAS — EXRCST STYLE
+    ══════════════════════════════════════════════════════ -->
+    <style>
+      /* ── EXRCST CATALOG ── */
+      .exr-catalog {
+        background: #0a0a0a;
+        padding: 0;
+      }
+
+      .exr-hero {
+        padding: 100px 60px 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .exr-hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(48px, 7vw, 96px);
+        font-weight: 300;
+        color: #f5f0e8;
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+      }
+
+      .exr-hero-title em {
+        font-style: italic;
+        color: rgba(245, 240, 232, 0.4);
+        display: block;
+      }
+
+      .exr-hero-sub {
+        font-family: "Montserrat", sans-serif;
+        font-size: 9px;
+        font-weight: 300;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.25);
+        max-width: 220px;
+        line-height: 2;
+        text-align: right;
+      }
+
+      /* ── NAV DE CATEGORIAS ── */
+      .exr-cat-nav {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 0 60px;
+        scrollbar-width: none;
+      }
+      .exr-cat-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .exr-cat-btn {
+        flex: 0 0 auto;
+        padding: 18px 24px;
+        background: none;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 9px;
+        font-weight: 400;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: color 0.2s;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -1px;
+        white-space: nowrap;
+      }
+
+      .exr-cat-btn:hover,
+      .exr-cat-btn.active {
+        color: #f5f0e8;
+        border-bottom-color: var(--red-light);
+      }
+
+      /* ── CATEGORIA SECTION ── */
+      .exr-cat-section {
+        padding: 64px 60px 80px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        display: none;
+      }
+      .exr-cat-section.visible {
+        display: block;
+      }
+
+      .exr-cat-label {
+        display: flex;
+        align-items: baseline;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .exr-cat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 11px;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.2);
+      }
+
+      .exr-cat-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(32px, 4vw, 56px);
+        font-weight: 300;
+        color: #f5f0e8;
+        letter-spacing: -0.01em;
+        line-height: 1;
+      }
+
+      .exr-cat-total {
+        font-family: "Montserrat", sans-serif;
+        font-size: 8px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        margin-left: auto;
+      }
+
+      /* ── GRID ── */
+      .exr-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 2px;
+      }
+
+      .exr-card {
+        position: relative;
+        overflow: hidden;
+        background: #111;
+        cursor: pointer;
+        aspect-ratio: 3/4;
+      }
+
+      .exr-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        filter: brightness(0.88);
+      }
+
+      .exr-card:hover img {
+        transform: scale(1.06);
+        filter: brightness(1);
+      }
+
+      .exr-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.75) 0%,
+          rgba(0, 0, 0, 0) 55%
+        );
+        z-index: 1;
+        transition: opacity 0.3s;
+      }
+
+      .exr-card-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 20px 18px;
+        z-index: 2;
+        transform: translateY(4px);
+        transition: transform 0.3s ease;
+      }
+
+      .exr-card:hover .exr-card-info {
+        transform: translateY(0);
+      }
+
+      .exr-card-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 7px;
+        font-weight: 500;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 4px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .exr-card:hover .exr-card-label {
+        opacity: 1;
+      }
+
+      .exr-card-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        font-weight: 300;
+        color: #fff;
+        line-height: 1.1;
+      }
+
+      /* ── MODAL ── */
+      .exr-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 3000;
+        align-items: center;
+        justify-content: center;
+      }
+      .exr-modal.open {
+        display: flex;
+      }
+
+      .exr-modal-close {
+        position: fixed;
+        top: 28px;
+        right: 32px;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 18px;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        z-index: 3001;
+      }
+      .exr-modal-close:hover {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .exr-modal-img {
+        max-width: 85vw;
+        max-height: 88vh;
+        object-fit: contain;
+        display: block;
+        user-select: none;
+      }
+
+      .exr-modal-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 18px;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        z-index: 3001;
+      }
+      .exr-modal-nav:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        color: #fff;
+      }
+      .exr-modal-nav.prev {
+        left: 24px;
+      }
+      .exr-modal-nav.next {
+        right: 24px;
+      }
+
+      .exr-modal-caption {
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 3001;
+      }
+
+      .exr-modal-caption-cat {
+        font-family: "Montserrat", sans-serif;
+        font-size: 8px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--red-light);
+        margin-bottom: 6px;
+      }
+
+      .exr-modal-caption-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 22px;
+        font-weight: 300;
+        color: #f5f0e8;
+      }
+
+      .exr-modal-caption-count {
+        font-family: "Montserrat", sans-serif;
+        font-size: 9px;
+        letter-spacing: 3px;
+        color: rgba(255, 255, 255, 0.2);
+        margin-top: 6px;
+      }
+
+      @media (max-width: 640px) {
+        .exr-hero {
+          padding: 60px 24px 40px;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .exr-hero-sub {
+          text-align: left;
+        }
+        .exr-cat-nav {
+          padding: 0 24px;
+        }
+        .exr-cat-section {
+          padding: 40px 24px 60px;
+        }
+        .exr-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .exr-modal-nav {
+          display: none;
+        }
+      }
+    </style>
+
+    <div class="exr-catalog">
+      <div class="exr-hero">
+        <h2 class="exr-hero-title">toda a<br /><em>coleção</em></h2>
+        <p class="exr-hero-sub">
+          Acasos do Amor<br />Milena Seyfild<br />Coleção Oficial 2025
+        </p>
+      </div>
+
+      <nav class="exr-cat-nav" id="exr-cat-nav">
+        <button class="exr-cat-btn" data-cat="pelucias">PELÚCIAS</button>
+        <button class="exr-cat-btn" data-cat="croche">CROCHÊ</button>
+        <button class="exr-cat-btn" data-cat="xicara">XÍCARA</button>
+        <button class="exr-cat-btn" data-cat="ecobag">ECOBAG</button>
+        <button class="exr-cat-btn" data-cat="pins">PINS</button>
+        <button class="exr-cat-btn" data-cat="cards">CARDS</button>
+        <button class="exr-cat-btn" data-cat="marcador">
+          MARCADOR DE PÁGINA
+        </button>
+        <button class="exr-cat-btn" data-cat="jerseys">JERSEYS</button>
+        <button class="exr-cat-btn" data-cat="quencher">QUENCHER</button>
+        <button class="exr-cat-btn" data-cat="copo">COPO</button>
+        <button class="exr-cat-btn" data-cat="teclas">TECLAS DE TECLADO</button>
+        <button class="exr-cat-btn" data-cat="bones">BONÉS</button>
+        <button class="exr-cat-btn" data-cat="velas">VELAS AROMÁTICAS</button>
+        <button class="exr-cat-btn" data-cat="meias">MEIAS</button>
+        <button class="exr-cat-btn" data-cat="camisas">CAMISAS</button>
+        <button class="exr-cat-btn" data-cat="moletom">MOLETOM</button>
+      </nav>
+
+      <section class="exr-cat-section visible" id="exr-pelucias">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">01</span>
+          <h3 class="exr-cat-name">PELÚCIAS</h3>
+          <span class="exr-cat-total">3 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="pelucias"
+            data-src="/Pelúcia.png"
+            data-alt="Pelúcia 1"
+            data-label="Pelúcia"
+            data-name="Pelúcia 1"
+          >
+            <img src="/Pelúcia.png" alt="Pelúcia 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Pelúcia</p>
+              <p class="exr-card-name">Pelúcia 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="pelucias"
+            data-src="/Pelúcia 2.png"
+            data-alt="Pelúcia 2"
+            data-label="Pelúcia"
+            data-name="Pelúcia 2"
+          >
+            <img src="/Pelúcia 2.png" alt="Pelúcia 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Pelúcia</p>
+              <p class="exr-card-name">Pelúcia 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="pelucias"
+            data-src="/Pelúcia 3.png"
+            data-alt="Pelúcia 3"
+            data-label="Pelúcia"
+            data-name="Pelúcia 3"
+          >
+            <img src="/Pelúcia 3.png" alt="Pelúcia 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Pelúcia</p>
+              <p class="exr-card-name">Pelúcia 3</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-croche">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">02</span>
+          <h3 class="exr-cat-name">CROCHÊ</h3>
+          <span class="exr-cat-total">4 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="croche"
+            data-src="/Crochê.png"
+            data-alt="Crochê 1"
+            data-label="Crochê"
+            data-name="Crochê 1"
+          >
+            <img src="/Crochê.png" alt="Crochê 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Crochê</p>
+              <p class="exr-card-name">Crochê 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="croche"
+            data-src="/Crochê 2.png"
+            data-alt="Crochê 2"
+            data-label="Crochê"
+            data-name="Crochê 2"
+          >
+            <img src="/Crochê 2.png" alt="Crochê 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Crochê</p>
+              <p class="exr-card-name">Crochê 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="croche"
+            data-src="/Crochê 3.png"
+            data-alt="Crochê 3"
+            data-label="Crochê"
+            data-name="Crochê 3"
+          >
+            <img src="/Crochê 3.png" alt="Crochê 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Crochê</p>
+              <p class="exr-card-name">Crochê 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="croche"
+            data-src="/Crochê 4.png"
+            data-alt="Crochê 3"
+            data-label="Crochê"
+            data-name="Crochê 4"
+          >
+            <img src="/Crochê 4.png" alt="Crochê 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Crochê</p>
+              <p class="exr-card-name">Crochê 4</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-xicara">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">03</span>
+          <h3 class="exr-cat-name">XÍCARA</h3>
+          <span class="exr-cat-total">5 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="xicara"
+            data-src="/Xícara 1.png"
+            data-alt="Xícara 1"
+            data-label="Xícara"
+            data-name="Xícara 1"
+          >
+            <img src="/Xícara 1.png" alt="Xícara 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Xícara</p>
+              <p class="exr-card-name">Xícara 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="xicara"
+            data-src="/Xícara 2.png"
+            data-alt="Xícara 2"
+            data-label="Xícara"
+            data-name="Xícara 2"
+          >
+            <img src="/Xícara 2.png" alt="Xícara 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Xícara</p>
+              <p class="exr-card-name">Xícara 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="xicara"
+            data-src="/Xícara 3.png"
+            data-alt="Xícara 3"
+            data-label="Xícara"
+            data-name="Xícara 3"
+          >
+            <img src="/Xícara 3.png" alt="Xícara 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Xícara</p>
+              <p class="exr-card-name">Xícara 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="xicara"
+            data-src="/Xícara 4.png"
+            data-alt="Xícara 4"
+            data-label="Xícara"
+            data-name="Xícara 4"
+          >
+            <img src="/Xícara 4.png" alt="Xícara 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Xícara</p>
+              <p class="exr-card-name">Xícara 4</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="xicara"
+            data-src="/Xícara 5.png"
+            data-alt="Xícara 5"
+            data-label="Xícara"
+            data-name="Xícara 5"
+          >
+            <img src="/Xícara 5.png" alt="Xícara 5" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Xícara</p>
+              <p class="exr-card-name">Xícara 5</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-ecobag">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">04</span>
+          <h3 class="exr-cat-name">ECOBAG</h3>
+          <span class="exr-cat-total">3 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="ecobag"
+            data-src="/Ecobag 1.png"
+            data-alt="Ecobag 1"
+            data-label="Ecobag"
+            data-name="Ecobag 1"
+          >
+            <img src="/Ecobag 1.png" alt="Ecobag 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Ecobag</p>
+              <p class="exr-card-name">Ecobag 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="ecobag"
+            data-src="/Ecobag 2.png"
+            data-alt="Ecobag 2"
+            data-label="Ecobag"
+            data-name="Ecobag 2"
+          >
+            <img src="/Ecobag 2.png" alt="Ecobag 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Ecobag</p>
+              <p class="exr-card-name">Ecobag 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="ecobag"
+            data-src="/Ecobag 3.png"
+            data-alt="Ecobag 3"
+            data-label="Ecobag"
+            data-name="Ecobag 3"
+          >
+            <img src="/Ecobag 3.png" alt="Ecobag 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Ecobag</p>
+              <p class="exr-card-name">Ecobag 3</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-pins">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">05</span>
+          <h3 class="exr-cat-name">PINS</h3>
+          <span class="exr-cat-total">2 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="pins"
+            data-src="/Pin 1.png"
+            data-alt="Pin 1"
+            data-label="Pin"
+            data-name="Pin 1"
+          >
+            <img src="/Pin 1.png" alt="Pin 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Pin</p>
+              <p class="exr-card-name">Pin 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="pins"
+            data-src="/Pin 2.png"
+            data-alt="Pin 2"
+            data-label="Pin"
+            data-name="Pin 2"
+          >
+            <img src="/Pin 2.png" alt="Pin 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Pin</p>
+              <p class="exr-card-name">Pin 2</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-cards">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">06</span>
+          <h3 class="exr-cat-name">CARDS</h3>
+          <span class="exr-cat-total">5 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="cards"
+            data-src="/Card 1.png"
+            data-alt="Card 1"
+            data-label="Card"
+            data-name="Card 1"
+          >
+            <img src="/Card 1.png" alt="Card 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Card</p>
+              <p class="exr-card-name">Card 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="cards"
+            data-src="/Card 2.png"
+            data-alt="Card 2"
+            data-label="Card"
+            data-name="Card 2"
+          >
+            <img src="/Card 2.png" alt="Card 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Card</p>
+              <p class="exr-card-name">Card 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="cards"
+            data-src="/Card 3.png"
+            data-alt="Card 3"
+            data-label="Card"
+            data-name="Card 3"
+          >
+            <img src="/Card 3.png" alt="Card 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Card</p>
+              <p class="exr-card-name">Card 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="cards"
+            data-src="/Card 4.png"
+            data-alt="Card 4"
+            data-label="Card"
+            data-name="Card 4"
+          >
+            <img src="/Card 4.png" alt="Card 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Card</p>
+              <p class="exr-card-name">Card 4</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="cards"
+            data-src="/Card 5.png"
+            data-alt="Card 5"
+            data-label="Card"
+            data-name="Card 5"
+          >
+            <img src="/Card 5.png" alt="Card 5" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Card</p>
+              <p class="exr-card-name">Card 5</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-marcador">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">07</span>
+          <h3 class="exr-cat-name">MARCADOR DE PÁGINA</h3>
+          <span class="exr-cat-total">3 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="marcador"
+            data-src="/Marca-página 1.png"
+            data-alt="Marcador 1"
+            data-label="Marcador"
+            data-name="Marcador 1"
+          >
+            <img src="/Marca-página 1.png" alt="Marcador 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Marcador</p>
+              <p class="exr-card-name">Marcador 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="marcador"
+            data-src="/Marca-página 2.png"
+            data-alt="Marcador 2"
+            data-label="Marcador"
+            data-name="Marcador 2"
+          >
+            <img src="/Marca-página 2.png" alt="Marcador 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Marcador</p>
+              <p class="exr-card-name">Marcador 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="marcador"
+            data-src="/Marca-página 3.png"
+            data-alt="Marcador 3"
+            data-label="Marcador"
+            data-name="Marcador 3"
+          >
+            <img src="/Marca-página 3.png" alt="Marcador 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Marcador</p>
+              <p class="exr-card-name">Marcador 3</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-jerseys">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">09</span>
+          <h3 class="exr-cat-name">JERSEYS</h3>
+          <span class="exr-cat-total">3 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="jerseys"
+            data-src="/Jersey-retro 1.png"
+            data-alt="Jersey-retro 1"
+            data-label="Jersey"
+            data-name="Jersey-retro 1"
+          >
+            <img
+              src="/Jersey-retro 1.png"
+              alt="Jersey-retro 1"
+              loading="lazy"
+            />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Jersey</p>
+              <p class="exr-card-name">Jersey-retro 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="jerseys"
+            data-src="/Jersey-retro 2.png"
+            data-alt="Jersey-retro 2"
+            data-label="Jersey"
+            data-name="Jersey-retro 2"
+          >
+            <img
+              src="/Jersey-retro 2.png"
+              alt="Jersey-retro 2"
+              loading="lazy"
+            />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Jersey</p>
+              <p class="exr-card-name">Jersey-retro 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="jerseys"
+            data-src="/Jersey-retro 3.png"
+            data-alt="Jersey-retro 3"
+            data-label="Jersey"
+            data-name="Jersey-retro 3"
+          >
+            <img
+              src="/Jersey-retro 3.png"
+              alt="Jersey-retro 3"
+              loading="lazy"
+            />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Jersey</p>
+              <p class="exr-card-name">Jersey-retro 3</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-quencher">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">10</span>
+          <h3 class="exr-cat-name">QUENCHER</h3>
+          <span class="exr-cat-total">2 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="quencher"
+            data-src="/Quencher 1.png"
+            data-alt="Quencher 1"
+            data-label="Quencher"
+            data-name="Quencher 1"
+          >
+            <img src="/Quencher 1.png" alt="Quencher 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Quencher</p>
+              <p class="exr-card-name">Quencher 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="quencher"
+            data-src="/Quencher 2.png"
+            data-alt="Quencher 2"
+            data-label="Quencher"
+            data-name="Quencher 2"
+          >
+            <img src="/Quencher 2.png" alt="Quencher 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Quencher</p>
+              <p class="exr-card-name">Quencher 2</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-copo">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">11</span>
+          <h3 class="exr-cat-name">COPO</h3>
+          <span class="exr-cat-total">5 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="copo"
+            data-src="/Copo 1.png"
+            data-alt="Copo 1"
+            data-label="Copo"
+            data-name="Copo 1"
+          >
+            <img src="/Copo 1.png" alt="Copo 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Copo</p>
+              <p class="exr-card-name">Copo 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="copo"
+            data-src="/Copo 2.png"
+            data-alt="Copo 2"
+            data-label="Copo"
+            data-name="Copo 2"
+          >
+            <img src="/Copo 2.png" alt="Copo 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Copo</p>
+              <p class="exr-card-name">Copo 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="copo"
+            data-src="/Copo 3.png"
+            data-alt="Copo 3"
+            data-label="Copo"
+            data-name="Copo 3"
+          >
+            <img src="/Copo 3.png" alt="Copo 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Copo</p>
+              <p class="exr-card-name">Copo 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="copo"
+            data-src="/Copo 4.png"
+            data-alt="Copo 4"
+            data-label="Copo"
+            data-name="Copo 4"
+          >
+            <img src="/Copo 4.png" alt="Copo 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Copo</p>
+              <p class="exr-card-name">Copo 4</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="copo"
+            data-src="/Copo 5.png"
+            data-alt="Copo 5"
+            data-label="Copo"
+            data-name="Copo 5"
+          >
+            <img src="/Copo 5.png" alt="Copo 5" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Copo</p>
+              <p class="exr-card-name">Copo 5</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-teclas">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">12</span>
+          <h3 class="exr-cat-name">TECLAS DE TECLADO</h3>
+          <span class="exr-cat-total">4 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="teclas"
+            data-src="/Teclas 1.png"
+            data-alt="Teclas 1"
+            data-label="Teclas"
+            data-name="Teclas 1"
+          >
+            <img src="/Teclas 1.png" alt="Teclas 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Teclas</p>
+              <p class="exr-card-name">Teclas 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="teclas"
+            data-src="/Teclas 2.png"
+            data-alt="Teclas 2"
+            data-label="Teclas"
+            data-name="Teclas 2"
+          >
+            <img src="/Teclas 2.png" alt="Teclas 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Teclas</p>
+              <p class="exr-card-name">Teclas 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="teclas"
+            data-src="/Teclas 3.png"
+            data-alt="Teclas 3"
+            data-label="Teclas"
+            data-name="Teclas 3"
+          >
+            <img src="/Teclas 3.png" alt="Teclas 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Teclas</p>
+              <p class="exr-card-name">Teclas 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="teclas"
+            data-src="/Teclas 4.png"
+            data-alt="Teclas 4"
+            data-label="Teclas"
+            data-name="Teclas 4"
+          >
+            <img src="/Teclas 4.png" alt="Teclas 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Teclas</p>
+              <p class="exr-card-name">Teclas 4</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-bones">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">13</span>
+          <h3 class="exr-cat-name">BONÉS</h3>
+          <span class="exr-cat-total">7 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="bones"
+            data-src="/Boné 1.png"
+            data-alt="Boné 1"
+            data-label="Boné"
+            data-name="Boné 1"
+          >
+            <img src="/Boné 1.png" alt="Boné 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Boné</p>
+              <p class="exr-card-name">Boné 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="bones"
+            data-src="/Boné 2.png"
+            data-alt="Boné 2"
+            data-label="Boné"
+            data-name="Boné 2"
+          >
+            <img src="/Boné 2.png" alt="Boné 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Boné</p>
+              <p class="exr-card-name">Boné 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="bones"
+            data-src="/Boné 3.png"
+            data-alt="Boné 3"
+            data-label="Boné"
+            data-name="Boné 3"
+          >
+            <img src="/Boné 3.png" alt="Boné 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Boné</p>
+              <p class="exr-card-name">Boné 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="bones"
+            data-src="/Boné 4.png"
+            data-alt="Boné 4"
+            data-label="Boné"
+            data-name="Boné 4"
+          >
+            <img src="/Boné 4.png" alt="Boné 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Boné</p>
+              <p class="exr-card-name">Boné 4</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="bones"
+            data-src="/Boné 5.png"
+            data-alt="Boné 5"
+            data-label="Boné"
+            data-name="Boné 5"
+          >
+            <img src="/Boné 5.png" alt="Boné 5" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Boné</p>
+              <p class="exr-card-name">Boné 5</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="bones"
+            data-src="/Boné 6.png"
+            data-alt="Boné 6"
+            data-label="Boné"
+            data-name="Boné 6"
+          >
+            <img src="/Boné 6.png" alt="Boné 6" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Boné</p>
+              <p class="exr-card-name">Boné 6</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="bones"
+            data-src="/Boné 7.png"
+            data-alt="Boné 7"
+            data-label="Boné"
+            data-name="Boné 7"
+          >
+            <img src="/Boné 7.png" alt="Boné 7" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Boné</p>
+              <p class="exr-card-name">Boné 7</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-velas">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">14</span>
+          <h3 class="exr-cat-name">VELAS AROMÁTICAS</h3>
+          <span class="exr-cat-total">4 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="velas"
+            data-src="/Vela 1.png"
+            data-alt="Vela 1"
+            data-label="Vela Aromática"
+            data-name="Vela 1"
+          >
+            <img src="/Vela 1.png" alt="Vela 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Vela Aromática</p>
+              <p class="exr-card-name">Vela 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="velas"
+            data-src="/Vela 2.png"
+            data-alt="Vela 2"
+            data-label="Vela Aromática"
+            data-name="Vela 2"
+          >
+            <img src="/Vela 2.png" alt="Vela 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Vela Aromática</p>
+              <p class="exr-card-name">Vela 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="velas"
+            data-src="/Vela 3.png"
+            data-alt="Vela 3"
+            data-label="Vela Aromática"
+            data-name="Vela 3"
+          >
+            <img src="/Vela 3.png" alt="Vela 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Vela Aromática</p>
+              <p class="exr-card-name">Vela 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="velas"
+            data-src="/Vela 4.png"
+            data-alt="Vela 4"
+            data-label="Vela Aromática"
+            data-name="Vela 4"
+          >
+            <img src="/Vela 4.png" alt="Vela 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Vela Aromática</p>
+              <p class="exr-card-name">Vela 4</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-meias">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">15</span>
+          <h3 class="exr-cat-name">MEIAS</h3>
+          <span class="exr-cat-total">4 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="meias"
+            data-src="/Meia 1.png"
+            data-alt="Meia 1"
+            data-label="Meias"
+            data-name="Meias 1"
+          >
+            <img src="/Meia 1.png" alt="Meia 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Meias</p>
+              <p class="exr-card-name">Meias 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="meias"
+            data-src="/Meia 2.png"
+            data-alt="Meia 2"
+            data-label="Meias"
+            data-name="Meias 2"
+          >
+            <img src="/Meia 2.png" alt="Meia 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Meias</p>
+              <p class="exr-card-name">Meias 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="meias"
+            data-src="/Meia 3.png"
+            data-alt="Meia 3"
+            data-label="Meias"
+            data-name="Meias 3"
+          >
+            <img src="/Meia 3.png" alt="Meia 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Meias</p>
+              <p class="exr-card-name">Meias 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="meias"
+            data-src="/Meia 4.png"
+            data-alt="Meia 4"
+            data-label="Meias"
+            data-name="Meias 4"
+          >
+            <img src="/Meia 4.png" alt="Meia 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Meias</p>
+              <p class="exr-card-name">Meias 4</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-camisas">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">16</span>
+          <h3 class="exr-cat-name">CAMISAS</h3>
+          <span class="exr-cat-total">8 itens</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 1.png"
+            data-alt="Camisa 1"
+            data-label="Camisa"
+            data-name="Camisa 1"
+          >
+            <img src="/Camisa 1.png" alt="Camisa 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 1</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 2.png"
+            data-alt="Camisa 2"
+            data-label="Camisa"
+            data-name="Camisa 2"
+          >
+            <img src="/Camisa 2.png" alt="Camisa 2" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 2</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 3.png"
+            data-alt="Camisa 3"
+            data-label="Camisa"
+            data-name="Camisa 3"
+          >
+            <img src="/Camisa 3.png" alt="Camisa 3" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 3</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 4.png"
+            data-alt="Camisa 4"
+            data-label="Camisa"
+            data-name="Camisa 4"
+          >
+            <img src="/Camisa 4.png" alt="Camisa 4" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 4</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 5.png"
+            data-alt="Camisa 5"
+            data-label="Camisa"
+            data-name="Camisa 5"
+          >
+            <img src="/Camisa 5.png" alt="Camisa 5" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 5</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 6.png"
+            data-alt="Camisa 6"
+            data-label="Camisa"
+            data-name="Camisa 6"
+          >
+            <img src="/Camisa 6.png" alt="Camisa 6" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 6</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 7.png"
+            data-alt="Camisa 7"
+            data-label="Camisa"
+            data-name="Camisa 7"
+          >
+            <img src="/Camisa 7.png" alt="Camisa 7" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 7</p>
+            </div>
+          </div>
+          <div
+            class="exr-card"
+            data-cat="camisas"
+            data-src="/Camisa 8.png"
+            data-alt="Camisa 8"
+            data-label="Camisa"
+            data-name="Camisa 8"
+          >
+            <img src="/Camisa 8.png" alt="Camisa 8" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Camisa</p>
+              <p class="exr-card-name">Camisa 8</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="exr-cat-section" id="exr-moletom">
+        <div class="exr-cat-label">
+          <span class="exr-cat-num">17</span>
+          <h3 class="exr-cat-name">MOLETOM</h3>
+          <span class="exr-cat-total">1 item</span>
+        </div>
+        <div class="exr-grid">
+          <div
+            class="exr-card"
+            data-cat="moletom"
+            data-src="/Moletom 1.png"
+            data-alt="Moletom 1"
+            data-label="Moletom"
+            data-name="Moletom 1"
+          >
+            <img src="/Moletom 1.png" alt="Moletom 1" loading="lazy" />
+            <div class="exr-card-overlay"></div>
+            <div class="exr-card-info">
+              <p class="exr-card-label">Moletom</p>
+              <p class="exr-card-name">Moletom 1</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- /exr-catalog -->
+
+    <!-- MODAL -->
+    <div class="exr-modal" id="exr-modal">
+      <button class="exr-modal-close" id="exr-close">&#10005;</button>
+      <button class="exr-modal-nav prev" id="exr-prev">&#8592;</button>
+      <img class="exr-modal-img" id="exr-modal-img" src="" alt="" />
+      <button class="exr-modal-nav next" id="exr-next">&#8594;</button>
+      <div class="exr-modal-caption">
+        <p class="exr-modal-caption-cat" id="exr-modal-cat"></p>
+        <p class="exr-modal-caption-name" id="exr-modal-name"></p>
+        <p class="exr-modal-caption-count" id="exr-modal-count"></p>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        // Category nav
+        var btns = document.querySelectorAll(".exr-cat-btn");
+        var sections = document.querySelectorAll(".exr-cat-section");
+        btns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var cat = btn.dataset.cat;
+            btns.forEach(function (b) {
+              b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            sections.forEach(function (s) {
+              s.classList.toggle("visible", s.id === "exr-" + cat);
+            });
+          });
+        });
+        // Set first active
+        if (btns.length) btns[0].classList.add("active");
+
+        // Build items index per category
+        var catItems = {};
+        document.querySelectorAll(".exr-card").forEach(function (card) {
+          var cat = card.dataset.cat;
+          if (!catItems[cat]) catItems[cat] = [];
+          catItems[cat].push(card);
+        });
+
+        // Modal
+        var curCat = "",
+          curIdx = 0;
+        var modal = document.getElementById("exr-modal");
+
+        function openModal(cat, idx) {
+          curCat = cat;
+          curIdx = idx;
+          showModal();
+          modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function closeModal() {
+          modal.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+        function showModal() {
+          var items = catItems[curCat] || [];
+          var card = items[curIdx];
+          if (!card) return;
+          document.getElementById("exr-modal-img").src = card.dataset.src;
+          document.getElementById("exr-modal-img").alt = card.dataset.alt;
+          document.getElementById("exr-modal-cat").textContent =
+            card.dataset.label;
+          document.getElementById("exr-modal-name").textContent =
+            card.dataset.name;
+          document.getElementById("exr-modal-count").textContent =
+            curIdx + 1 + " / " + items.length;
+        }
+        function navModal(dir) {
+          var items = catItems[curCat] || [];
+          curIdx = (curIdx + dir + items.length) % items.length;
+          showModal();
+        }
+
+        document.querySelectorAll(".exr-card").forEach(function (card, i) {
+          card.addEventListener("click", function () {
+            var cat = card.dataset.cat;
+            var idx = (catItems[cat] || []).indexOf(card);
+            openModal(cat, idx);
+          });
+        });
+
+        document
+          .getElementById("exr-close")
+          .addEventListener("click", closeModal);
+        document
+          .getElementById("exr-prev")
+          .addEventListener("click", function () {
+            navModal(-1);
+          });
+        document
+          .getElementById("exr-next")
+          .addEventListener("click", function () {
+            navModal(1);
+          });
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (!modal.classList.contains("open")) return;
+          if (e.key === "ArrowRight") navModal(1);
+          else if (e.key === "ArrowLeft") navModal(-1);
+          else if (e.key === "Escape") closeModal();
+        });
+      })();
+    </script>
+
+    <!-- CONTRA-CAPA -->
+    <section class="back-cover">
+      <div
+        class="cover-rule"
+        style="
+          background: linear-gradient(
+            to right,
+            transparent,
+            rgba(139, 26, 26, 0.5),
+            transparent
+          );
+        "
+      ></div>
+      <div style="margin: 40px 0">
+        <h2>Acasos do Amor</h2>
+        <p
+          style="
+            font-family: &quot;Cormorant Garamond&quot;, serif;
+            font-style: italic;
+            font-size: 18px;
+            color: rgba(245, 240, 232, 0.5);
+            margin-top: -8px;
+            margin-bottom: 28px;
+          "
+        >
+          Milena Seyfild
+        </p>
+        <p>
+          Disponível na Amazon. Uma história de obsessão proibida, hóquei e o
+          amor que desafia qualquer regra.
+        </p>
+        <a
+          class="amazon-link"
+          href="https://www.amazon.com.br/Acasos-do-Amor-Milena-Seyfild-ebook/dp/B0GYQQP3XF"
+          target="_blank"
+        >
+          Adquira o Livro
+        </a>
+      </div>
+      <div
+        class="cover-rule"
+        style="
+          background: linear-gradient(
+            to right,
+            transparent,
+            rgba(139, 26, 26, 0.5),
+            transparent
+          );
+        "
+      ></div>
+      <p
+        style="
+          font-size: 9px;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          color: rgba(245, 240, 232, 0.2);
+          margin-top: 40px;
+        "
+      >
+        Coleção Oficial · Lookbook 2025
+      </p>
+    </section>
+  </body>
+</html>
