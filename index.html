@@ -1622,11 +1622,16 @@
       }
 
       /* ── NAV DE CATEGORIAS ── */
+      .exr-cat-nav-wrap {
+        position: relative;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
       .exr-cat-nav {
         display: flex;
         gap: 0;
         overflow-x: auto;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: none;
         padding: 0 60px;
         scrollbar-width: none;
       }
@@ -1909,7 +1914,8 @@
       }
     </style>
 
-    <div class="exr-catalog">
+    <div class="exr-catalog" >
+      <div class="container" style="max-width: 100vw; margin: 0 auto;">
       <div class="exr-hero">
         <h2 class="exr-hero-title">toda a<br /><em>coleção</em></h2>
         <p class="exr-hero-sub">
@@ -1917,8 +1923,8 @@
         </p>
       </div>
 
+      <div class="exr-cat-nav-wrap" id="exr-cat-nav-wrap">
       <nav class="exr-cat-nav" id="exr-cat-nav">
-        <button class="exr-cat-btn" data-cat="pelucias">PELÚCIAS</button>
         <button class="exr-cat-btn" data-cat="croche">CROCHÊ</button>
         <button class="exr-cat-btn" data-cat="xicara">XÍCARA</button>
         <button class="exr-cat-btn" data-cat="ecobag">ECOBAG</button>
@@ -1937,6 +1943,7 @@
         <button class="exr-cat-btn" data-cat="camisas">CAMISAS</button>
         <button class="exr-cat-btn" data-cat="moletom">MOLETOM</button>
       </nav>
+      </div><!-- /exr-cat-nav-wrap -->
 
       <section class="exr-cat-section visible" id="exr-pelucias">
         <div class="exr-cat-label">
@@ -3055,6 +3062,7 @@
         </div>
       </section>
     </div>
+    </div>
     <!-- /exr-catalog -->
 
     <!-- MODAL -->
@@ -3072,6 +3080,58 @@
 
     <script>
       (function () {
+        // Nav peek hint: observa o exr-catalog; só executa quando 80% visível E usuário parou de rolar
+        (function () {
+          if (window.innerWidth > 640) return;
+          var navEl  = document.getElementById("exr-cat-nav");
+          var catalog = document.querySelector(".exr-catalog");
+          if (!navEl || !catalog) return;
+          var hintDone = false;
+          var idleTimer = null;
+
+          function doPeek() {
+            if (hintDone || navEl.scrollLeft > 0) return;
+            hintDone = true;
+            setTimeout(function () {
+              navEl.scrollTo({ left: 72, behavior: "smooth" });
+              setTimeout(function () {
+                navEl.scrollTo({ left: 0, behavior: "smooth" });
+              }, 620);
+            }, 400);
+          }
+
+          function scheduleIfIdle() {
+            // Cancela qualquer timer pendente
+            clearTimeout(idleTimer);
+            // Só agenda se a página não estiver sendo rolada (300ms de silêncio)
+            idleTimer = setTimeout(doPeek, 300);
+          }
+
+          var catalogVisible = false;
+
+          if ("IntersectionObserver" in window) {
+            var obs = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                catalogVisible = entry.isIntersecting;
+                if (catalogVisible) {
+                  scheduleIfIdle();
+                } else {
+                  clearTimeout(idleTimer);
+                }
+              });
+            }, { threshold: 0.8 });
+            obs.observe(catalog);
+          }
+
+          // Cancela o timer enquanto o usuário está rolando a página
+          window.addEventListener("scroll", function () {
+            if (!catalogVisible) return;
+            clearTimeout(idleTimer);
+            // Reagenda: só executa 300ms depois que parar de rolar
+            idleTimer = setTimeout(doPeek, 300);
+          }, { passive: true });
+        })();
+
         // Category nav
         var btns = document.querySelectorAll(".exr-cat-btn");
         var sections = document.querySelectorAll(".exr-cat-section");
