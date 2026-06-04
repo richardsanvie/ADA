@@ -1911,7 +1911,58 @@
         .exr-modal-nav {
           display: none;
         }
-      }
+
+        /* Hint de swipe no modal — mobile only */
+        .exr-swipe-hint {
+          position: fixed;
+          bottom: 100px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 3002;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.4s;
+        }
+        .exr-swipe-hint.visible {
+          opacity: 1;
+        }
+        .exr-swipe-hint-row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .exr-swipe-hint-icon {
+          width: 28px;
+          height: 28px;
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+        .exr-swipe-hint-icon svg {
+          width: 12px;
+          height: 12px;
+          stroke: rgba(255,255,255,0.5);
+          fill: none;
+          stroke-width: 2;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+        .exr-swipe-hint-text {
+          font-family: "Montserrat", sans-serif;
+          font-size: 8px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.35);
+          white-space: nowrap;
+        }
+      }      }
     </style>
 
     <div class="exr-catalog" >
@@ -3047,12 +3098,12 @@
           <div
             class="exr-card"
             data-cat="moletom"
-            data-src="./Images/moletom 1.png"
+            data-src="./Images/Moletom 1.png"
             data-alt="Moletom 1"
             data-label="Moletom"
             data-name="Moletom 1"
           >
-            <img src="./Images/moletom 1.png" alt="Moletom 1" loading="lazy" />
+            <img src="./Images/Moletom 1.png" alt="Moletom 1" loading="lazy" />
             <div class="exr-card-overlay"></div>
             <div class="exr-card-info">
               <p class="exr-card-label">Moletom</p>
@@ -3075,6 +3126,27 @@
         <p class="exr-modal-caption-cat" id="exr-modal-cat"></p>
         <p class="exr-modal-caption-name" id="exr-modal-name"></p>
         <p class="exr-modal-caption-count" id="exr-modal-count"></p>
+      </div>
+      <!-- Swipe hint: aparece só no mobile na primeira abertura -->
+      <div class="exr-swipe-hint" id="exr-swipe-hint">
+        <div class="exr-swipe-hint-row">
+          <div class="exr-swipe-hint-icon">
+            <svg viewBox="0 0 12 12"><polyline points="8,3 4,6 8,9"/></svg>
+          </div>
+          <span class="exr-swipe-hint-text">deslize para navegar itens</span>
+          <div class="exr-swipe-hint-icon">
+            <svg viewBox="0 0 12 12"><polyline points="4,3 8,6 4,9"/></svg>
+          </div>
+        </div>
+        <div class="exr-swipe-hint-row">
+          <div class="exr-swipe-hint-icon">
+            <svg viewBox="0 0 12 12"><polyline points="3,8 6,4 9,8"/></svg>
+          </div>
+          <span class="exr-swipe-hint-text">deslize para trocar categoria</span>
+          <div class="exr-swipe-hint-icon">
+            <svg viewBox="0 0 12 12"><polyline points="3,4 6,8 9,4"/></svg>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -3223,6 +3295,65 @@
           else if (e.key === "ArrowLeft") navModal(-1);
           else if (e.key === "Escape") closeModal();
         });
+
+        // ── SWIPE (mobile) ──────────────────────────────────────────
+        var catOrder = Array.from(document.querySelectorAll(".exr-cat-btn"))
+                           .map(function(b){ return b.dataset.cat; });
+
+        function navCategory(dir) {
+          var idx = catOrder.indexOf(curCat);
+          var nextIdx = (idx + dir + catOrder.length) % catOrder.length;
+          var nextCat = catOrder[nextIdx];
+          // Ativa o botão da nova categoria
+          document.querySelectorAll(".exr-cat-btn").forEach(function(b){
+            b.classList.toggle("active", b.dataset.cat === nextCat);
+          });
+          document.querySelectorAll(".exr-cat-section").forEach(function(s){
+            s.classList.toggle("visible", s.id === "exr-" + nextCat);
+          });
+          // Abre o primeiro item da nova categoria
+          var items = catItems[nextCat] || [];
+          if (items.length) openModal(nextCat, 0);
+        }
+
+        var swipeStartX = 0, swipeStartY = 0, swipeLocked = false;
+
+        modal.addEventListener("touchstart", function(e) {
+          swipeStartX = e.touches[0].clientX;
+          swipeStartY = e.touches[0].clientY;
+          swipeLocked = false;
+        }, { passive: true });
+
+        modal.addEventListener("touchend", function(e) {
+          if (swipeLocked) return;
+          var dx = e.changedTouches[0].clientX - swipeStartX;
+          var dy = e.changedTouches[0].clientY - swipeStartY;
+          var adx = Math.abs(dx), ady = Math.abs(dy);
+          var threshold = 40;
+          if (adx < threshold && ady < threshold) return;
+          if (adx >= ady) {
+            // Horizontal → navega itens
+            navModal(dx < 0 ? 1 : -1);
+          } else {
+            // Vertical → troca categoria
+            navCategory(dy < 0 ? 1 : -1);
+          }
+          swipeLocked = true;
+        }, { passive: true });
+
+        // ── SWIPE HINT ──────────────────────────────────────────────
+        var swipeHint = document.getElementById("exr-swipe-hint");
+        var swipeHintShown = false;
+        var origOpenModal = openModal;
+        openModal = function(cat, idx) {
+          origOpenModal(cat, idx);
+          if (!swipeHintShown && swipeHint && window.innerWidth <= 640) {
+            swipeHintShown = true;
+            swipeHint.classList.add("visible");
+            setTimeout(function(){ swipeHint.classList.remove("visible"); }, 2500);
+          }
+        };
+
       })();
     </script>
 
