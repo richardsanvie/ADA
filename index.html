@@ -1144,7 +1144,7 @@
       <!-- PRODUTO 01 — MARCA-PÁGINA -->
       <article class="hero-product">
         <div class="visual">
-          <img src="./Images/Marca-página 2.png" alt="Marca-página Acasos do Amor" />
+          <img src="./Images/Marca-página 2.png" alt="Marca-página Acasos do Amor" data-lb="./Images/Marca-página 2.png" />
         </div>
         <div class="info" style="max-width: 95%">
           <p class="eyebrow">Produto 01 · Marca-página</p>
@@ -1163,7 +1163,7 @@
           </p>
           <div>
             <span class="tag">Edição Especial</span>
-            <span class="tag">Frente &amp; Verso</span>
+            <span class="tag">Frente e Verso</span>
           </div>
           <blockquote>
             "Mesmo se nossos pais nunca tivessem se conhecido, eu daria um jeito
@@ -1175,7 +1175,7 @@
       <!-- PRODUTO 02 — TECLAS -->
       <article class="hero-product reverse">
         <div class="visual">
-          <img src="./Images/Teclas 1.png" alt="Teclas de teclado Acasos do Amor" />
+          <img src="./Images/Teclas 1.png" alt="Teclas de teclado Acasos do Amor" data-lb="./Images/Teclas 1.png" />
         </div>
         <div class="info" style="margin-left: auto; max-width: 95%">
           <div class="conten">
@@ -1204,7 +1204,7 @@
       <!-- PRODUTO 03 — CROCHÊ -->
       <article class="hero-product">
         <div class="visual">
-          <img src="./Images/Crochê.png" alt="Chaveiro de Crochê Acasos do Amor" />
+          <img src="./Images/Crochê.png" alt="Chaveiro de Crochê Acasos do Amor" data-lb="./Images/Crochê.png" />
         </div>
         <div class="info" style="max-width: 95%">
           <p class="eyebrow">Produto 03 · Chaveiro de Crochê</p>
@@ -1236,7 +1236,7 @@
       <!-- PRODUTO 04 — JERSEY RETRO -->
       <article class="hero-product reverse">
         <div class="visual">
-          <img src="./Images/Jersey-retro 2.png" alt="Jersey Retro A Garota do Capitão" />
+          <img src="./Images/Jersey-retro 2.png" alt="Jersey Retro A Garota do Capitão" data-lb="./Images/Jersey-retro 2.png" />
         </div>
         <div class="info" style="margin-left: auto; max-width: 95%">
           <p class="eyebrow">Produto 04 · Jersey Retro</p>
@@ -1255,7 +1255,7 @@
           </p>
           <div>
             <span class="tag">Jersey Retro Oversized</span>
-            <span class="tag">100 % Sublimado</span>
+            <span class="tag">100% Sublimada</span>
             <span class="tag">Edição Cecília 98</span>
           </div>
           <blockquote>
@@ -1268,7 +1268,7 @@
       <!-- PRODUTO 05 — PELÚCIA -->
       <article class="hero-product">
         <div class="visual">
-          <img src="./Images/Pelúcia.png" alt="Pelúcia Baron Donovan" />
+          <img src="./Images/Pelúcia.png" alt="Pelúcia Baron Donovan" data-lb="./Images/Pelúcia.png" />
         </div>
         <div class="info" style="max-width: 95%">
           <p class="eyebrow">Produto 05 · Pelúcia Colecionável</p>
@@ -1355,7 +1355,7 @@
           <div class="uniform-card" data-tier="S">
             <p class="tier-label">Linha Standard</p>
             <div class="uniformes">
-              <img src="./Images/Uniforme Standard.png" alt="Jersey Bordô 98" />
+              <img src="./Images/Uniforme Standard.png" alt="Jersey Bordô 98" data-lb="./Images/Uniforme Standard.png" />
             </div>
             <h3>Jersey<br />Bordô 98</h3>
             <p>
@@ -1380,7 +1380,7 @@
           >
             <p class="tier-label" style="color: #b8860b">Linha Premium</p>
             <div class="uniformes">
-              <img src="./Images/Uniforme Premium.png" alt="Jersey Harvard 98" />
+              <img src="./Images/Uniforme Premium.png" alt="Jersey Harvard 98" data-lb="./Images/Uniforme Premium.png" />
             </div>
             <h3>Jersey<br />Harvard 98</h3>
             <p>
@@ -1500,6 +1500,7 @@
             <img
               src="./Images/funkopop1.png"
               alt="Figura Colecionável Baron Donovan"
+              data-lb="./Images/funkopop1.png"
             />
             <p class="funko-number">Edição 01 · Figura Colecionável</p>
             <h3>Baron Donovan</h3>
@@ -1522,6 +1523,7 @@
             <img
               src="./Images/funkopop2.png"
               alt="Figura Colecionável Cecília Braga"
+              data-lb="./Images/funkopop2.png"
             />
             <p class="funko-number">Edição 02 · Figura Colecionável</p>
             <h3>Cecília Braga</h3>
@@ -1962,8 +1964,61 @@
           color: rgba(255,255,255,0.35);
           white-space: nowrap;
         }
-      }      }
+      }
+
+      /* ── LIGHTBOX GENÉRICO ── */
+      .lb-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.96);
+        z-index: 4000;
+        align-items: center;
+        justify-content: center;
+      }
+      .lb-overlay.open { display: flex; }
+
+      .lb-img {
+        max-width: 90vw;
+        max-height: 88vh;
+        object-fit: contain;
+        display: block;
+        user-select: none;
+        border-radius: 2px;
+      }
+
+      .lb-close {
+        position: fixed;
+        top: 28px;
+        right: 32px;
+        background: none;
+        border: 1px solid rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.5);
+        font-size: 18px;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 4001;
+        transition: all 0.2s;
+      }
+      .lb-close:hover { border-color:#fff; color:#fff; }
+
+      /* Imagens clicáveis fora do catálogo */
+      [data-lb] {
+        cursor: zoom-in;
+        transition: opacity 0.2s;
+      }
+      [data-lb]:hover { opacity: 0.88; }
     </style>
+
+    <!-- LIGHTBOX GENÉRICO -->
+    <div class="lb-overlay" id="lb-overlay">
+      <button class="lb-close" id="lb-close">&#10005;</button>
+      <img class="lb-img" id="lb-img" src="" alt="" />
+    </div>
 
     <div class="exr-catalog" >
       <div class="container" style="max-width: 100vw; margin: 0 auto;">
@@ -3098,12 +3153,12 @@
           <div
             class="exr-card"
             data-cat="moletom"
-            data-src="./Images/Moletom 1.png"
+            data-src="./Images/moletom 1.png"
             data-alt="Moletom 1"
             data-label="Moletom"
             data-name="Moletom 1"
           >
-            <img src="./Images/Moletom 1.png" alt="Moletom 1" loading="lazy" />
+            <img src="./Images/moletom 1.png" alt="Moletom 1" loading="lazy" />
             <div class="exr-card-overlay"></div>
             <div class="exr-card-info">
               <p class="exr-card-label">Moletom</p>
@@ -3353,6 +3408,49 @@
             setTimeout(function(){ swipeHint.classList.remove("visible"); }, 2500);
           }
         };
+
+        // ── LIGHTBOX GENÉRICO ────────────────────────────────────
+        (function () {
+          var lbOverlay = document.getElementById("lb-overlay");
+          var lbImg     = document.getElementById("lb-img");
+          var lbClose   = document.getElementById("lb-close");
+          if (!lbOverlay) return;
+
+          function openLb(src, alt) {
+            lbImg.src = src;
+            lbImg.alt = alt || "";
+            lbOverlay.classList.add("open");
+            document.body.style.overflow = "hidden";
+          }
+          function closeLb() {
+            lbOverlay.classList.remove("open");
+            document.body.style.overflow = "";
+            lbImg.src = "";
+          }
+
+          document.querySelectorAll("[data-lb]").forEach(function (img) {
+            img.addEventListener("click", function () {
+              openLb(img.dataset.lb, img.alt);
+            });
+          });
+
+          lbClose.addEventListener("click", closeLb);
+          lbOverlay.addEventListener("click", function (e) {
+            if (e.target === lbOverlay) closeLb();
+          });
+          document.addEventListener("keydown", function (e) {
+            if (lbOverlay.classList.contains("open") && e.key === "Escape") closeLb();
+          });
+
+          // Swipe down para fechar no mobile
+          var lbTouchY = 0;
+          lbOverlay.addEventListener("touchstart", function (e) {
+            lbTouchY = e.touches[0].clientY;
+          }, { passive: true });
+          lbOverlay.addEventListener("touchend", function (e) {
+            if (Math.abs(e.changedTouches[0].clientY - lbTouchY) > 80) closeLb();
+          }, { passive: true });
+        })();
 
       })();
     </script>
